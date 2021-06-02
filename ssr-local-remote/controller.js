@@ -3,11 +3,12 @@ const path = require('path');
 
 function runner(signal, configPath) {
     let shadowsocksrPath = path.resolve(path.join("../", "shadowsocksr"));
-    let params = configPath ? ['-c', configPath] : [];
-
+    let configParams = configPath ? ['-c', configPath] : [];
+    let portParams = process.env.CLIENT_PORT ? ['-l', process.env.CLIENT_PORT] : [];
     let ssr = child_process.spawn("python3", [
             path.join(shadowsocksrPath, "shadowsocks/local.py"),
-            ...params
+            ...configParams,
+            ...portParams
         ],
         {
             signal,

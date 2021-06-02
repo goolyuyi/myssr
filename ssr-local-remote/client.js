@@ -1,7 +1,7 @@
 const express = require('express')
 const Server = require("./server");
 const app = express()
-const port = 3000
+const port = process.env.SERVER_PORT || 3000
 const logger = require('morgan');
 
 let server = new Server();
