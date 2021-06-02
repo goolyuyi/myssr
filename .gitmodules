@@ -1,0 +1,4 @@
+[submodule "shadowsocksr"]
+	path = shadowsocksr
+	url = https://github.com/goolyuyi/shadowsocksr
+	branch = my-ssr-local
