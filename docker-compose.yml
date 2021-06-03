@@ -1,0 +1,8 @@
+version: "3"
+
+services:
+  myssr:
+    image: goolyuyi/myssr:1.0.0
+    ports:
+      - 10081:80
+      - 10080:1080
