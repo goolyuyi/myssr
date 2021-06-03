@@ -1,9 +1,9 @@
 const got = require('got');
+const createClient = require('./client');
 
 test('list', async () => {
-    let {app,server} = require('./client');
+    let {app, server} = createClient();
     let res = got.get("http://localhost:3000/list");
-
     let lst = await res.json()
     console.log(lst);
     expect(Object.keys(lst).length).toBeGreaterThanOrEqual(1);
@@ -11,7 +11,7 @@ test('list', async () => {
 })
 
 test('get', async () => {
-    let {app,server} = require('./client');
+    let {app, server} = createClient();
     let res = got.get("http://localhost:3000/list");
     let lst = await res.json()
 
@@ -26,7 +26,7 @@ test('get', async () => {
 })
 
 test('error', async () => {
-    let {app,server} = require('./client');
+    let {app, server} = createClient();
     let res = got.get("http://localhost:3000/404");
 
     await expect(async () => {

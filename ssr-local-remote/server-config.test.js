@@ -1,7 +1,7 @@
 test('list', async () => {
     const ServerConfigs = require('./server-config');
     const fs = require('fs-extra');
-    let c = new ServerConfigs(fs.readJsonSync('./export.json'));
+    let c = new ServerConfigs(fs.readJsonSync('./private/export.json'));
     let res = c.list;
 
     console.log(res);
@@ -11,7 +11,7 @@ test('list', async () => {
 test('genConfig', async () => {
     const ServerConfigs = require('./server-config');
     const fs = require('fs-extra');
-    let c = new ServerConfigs(fs.readJsonSync('./export.json'), {a: 1});
+    let c = new ServerConfigs(fs.readJsonSync('./private/export.json'), {a: 1});
     let res = c.list;
 
     expect(() => c.config('aaaaa')).toThrow();
